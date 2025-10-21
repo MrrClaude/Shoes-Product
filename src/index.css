@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import 'flowbite';
+:root{
+    --bg-theme:#f6f6f6;
+    --text-theme:#000000;
+}
+.dark {
+    --bg-theme:#000000;
+    --text-theme:#f6f6f6;
+}
+body{
+    background-color: var(--bg-theme);
+    color:var(--text-theme);
+}
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 40px;
+}
