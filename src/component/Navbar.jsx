@@ -129,7 +129,7 @@ const Navbar = ({ onAddToCart }) => {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="#Shoes"
                   onClick={handleClick}
                   className="block py-2 px-3 rounded-md font-bold  bg-gradient-to-r from-purple-500 to-blue-400 bg-clip-text text-transparent  hover:bg-gradient-to-r hover:text-transparent hover:from-blue-200 hover:to-purple-800 hover:shadow-lg hover:shadow-blue-300/60 transition-all duration-300 ease-in-out"
                 >
@@ -147,7 +147,7 @@ const Navbar = ({ onAddToCart }) => {
               </li> */}
               <li>
                 <a
-                  href="#"
+                  href="#contact"
                   onClick={handleClick}
                   className="block py-2 px-3 rounded-md font-bold  bg-gradient-to-r from-purple-500 to-blue-400 bg-clip-text text-transparent  hover:bg-gradient-to-r hover:text-transparent hover:from-blue-200 hover:to-purple-800 hover:shadow-lg hover:shadow-blue-300/60 transition-all duration-300 ease-in-out"
                 >

@@ -95,7 +95,7 @@ const VideoAboutShoe = () => {
 
       {/* Modal */}
       {modalOpen && (
-        <div className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-black/50 backdrop-blur-sm px-4">
+        <div className="fixed inset-0 z-[99999] flex flex-col items-center justify-center text-white bg-black/50 backdrop-blur-sm px-4">
           <div className="flex justify-end w-[50%] mb-4 text-right  ">
             <button
               onClick={() => setModalOpen(false)}
@@ -119,7 +119,7 @@ const VideoAboutShoe = () => {
             </button>
           </div>
 
-          <div className="w-[50%]  aspect-video rounded-2xl overflow-hidden shadow-2xl ">
+          <div className="w-[100%] md:w-[50%] aspect-video rounded-2xl overflow-hidden shadow-2xl ">
             <video
               id="nikeVideo"
               width="1920"

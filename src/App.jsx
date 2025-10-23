@@ -4,6 +4,8 @@ import Footer from "./component/Footer";
 import Home from "./pages/Home";
 import ThemeContext from "./context/ThemeProvider";
 import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
+import Shose from "./pages/Shose";
 const App = () => {
   const{theme}=useContext(ThemeContext);
   return (
@@ -14,7 +16,8 @@ const App = () => {
       <div>
         <Home />
         <AboutUs/>
-        
+        <Shose/>
+        <ContactUs/>
       </div>
       <div>
         <Footer />
