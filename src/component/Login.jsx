@@ -1,12 +1,18 @@
 // src/components/LoginModal.jsx
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ThemeContext from "../context/ThemeProvider";
+import SignUp from "./SignUp";
 
 const Login = ({ isOpen, onClose }) => {
   const { theme } = useContext(ThemeContext);
   const isDark = theme === "dark";
+    const [showSignUp, setShowSignUp] = useState(false);
 
   if (!isOpen) return null;
+
+   if (showSignUp) {
+    return <SignUp isOpen={showSignUp} onClose={() => setShowSignUp(false)} />;
+  }
 
   return (
     <div
@@ -125,9 +131,12 @@ const Login = ({ isOpen, onClose }) => {
             }`}
           >
             Don’t have an account?{" "}
-            <a href="#" className="text-blue-600 hover:underline">
+             <span
+              onClick={() => setShowSignUp(true)}
+              className="text-blue-600 hover:underline cursor-pointer"
+            >
               Sign up
-            </a>
+            </span>
           </p>
         </form>
       </div>
