@@ -68,12 +68,12 @@ const Home = () => {
               find the best shoes for your style and comfort.
             </p>
             <div className=" flex justify-center gap-3.5  md:justify-start  mt-6 mb-4 ">
-              <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95">
+              <a href="#Shoes" className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95">
                 Shop Now
-              </button>
-              <button className="px-6 py-3 bg-white/20 hover:bg-white/30 font-semibold rounded-lg shadow-lg border border-white/30 transition-all duration-300 transform hover:scale-105 active:scale-95">
+              </a>
+              <a href="#about" className="px-6 py-3 bg-white/20 hover:bg-white/30 font-semibold rounded-lg shadow-lg border border-white/30 transition-all duration-300 transform hover:scale-105 active:scale-95">
                 Explore More
-              </button>
+              </a>
             </div>
           </div>
 
