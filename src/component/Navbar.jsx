@@ -2,12 +2,19 @@ import React, { useContext, useEffect, useState } from "react";
 import ThemeContext from "../context/ThemeProvider";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { FaShoppingCart } from "react-icons/fa";
+import CartContext from "../context/CartContext";
+import AddToCartModal from "./AddToCartModal";
+import Login from "./Login";
 
-const Navbar = ({ onAddToCart }) => {
+const Navbar = () => {
   const { theme, toggle } = useContext(ThemeContext);
+  const { totalItems } = useContext(CartContext);
+  const [isLoginOpen,setIsLoginOpen]=useState(false)
   const [showNavbar, setShowNavbar] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
 
+  // Show/hide navbar on scroll
   useEffect(() => {
     let scrollTimeout;
     const handleScroll = () => {
@@ -21,21 +28,22 @@ const Navbar = ({ onAddToCart }) => {
       if (scrollTimeout) clearTimeout(scrollTimeout);
     };
   }, []);
-  const handleClick = () => {
+
+  const handleMenuClick = () => {
     setMenuOpen(false);
   };
 
   return (
     <div>
       <nav
-        className={`backdrop-blur-lg bg-white/10 border border-white/20  shadow-lg fixed top-2 left-3 right-3 z-20  rounded-3xl transition-transform duration-300 ease-in-out ${
+        className={`backdrop-blur-lg bg-white/10 border border-white/20 shadow-lg fixed top-2 left-3 right-3 z-20 rounded-3xl transition-transform duration-300 ease-in-out ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
         } ${theme === "dark" ? "text-white" : "text-black"}`}
       >
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-4 py-3">
           <a
             href="/"
-            className="flex items-center gap-2  hover:text-blue-300 transition-all"
+            className="flex items-center gap-2 hover:text-blue-300 transition-all"
           >
             <img
               src="https://media.tenor.com/smjHE1Sh9qcAAAAj/nike.gif"
@@ -59,31 +67,29 @@ const Navbar = ({ onAddToCart }) => {
               )}
             </button>
 
-            <div className="hidden sm:flex items-center gap-2 flex-nowrap">
+            <div className="hidden sm:flex items-center gap-2">
               <button
-                onClick={handleClick}
-                className="inline-flex items-center gap-1 px-3 py-1.5 text-xs sm:text-sm font-medium  bg-gradient-to-r from-blue-500 to-emerald-600 rounded-full shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all duration-200 whitespace-nowrap"
+                onClick={() => setIsLoginOpen(true)}
+                className="inline-flex items-center gap-1 px-3 py-1.5 text-xs sm:text-sm font-medium bg-gradient-to-r from-blue-500 to-emerald-600 rounded-full shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all duration-200 whitespace-nowrap"
               >
                 Login
               </button>
             </div>
+
             <button
-              onClick={() => {
-                handleClick();
-                onAddToCart();
-              }}
-              className="relative inline-flex items-center justify-center gap-1 px-3 py-1.5 text-xs font-medium  bg-gradient-to-r from-blue-500 to-emerald-600 rounded-full shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all duration-200"
+              onClick={() => setCartOpen(true)}
+              className="relative inline-flex items-center justify-center gap-1 px-3 py-1.5 text-xs font-medium bg-gradient-to-r from-blue-500 to-emerald-600 rounded-full shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all duration-200"
             >
               <FaShoppingCart className="text-sm group-hover:rotate-12 transition-transform duration-200" />
-              <span className="absolute -top-1 -right-1 bg-red-500 text-[10px] font-bold  rounded-full px-1.5">
-                3
+              <span className="absolute -top-1 -right-1 bg-red-500 text-[10px] font-bold rounded-full px-1.5">
+                {totalItems}
               </span>
             </button>
 
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm  rounded-lg md:hidden hover:bg-white/20 focus:outline-none"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden hover:bg-white/20 focus:outline-none"
             >
               <svg
                 className="w-5 h-5"
@@ -108,57 +114,23 @@ const Navbar = ({ onAddToCart }) => {
               menuOpen ? "block" : "hidden"
             }`}
           >
-            <ul className="flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 font-medium  text-sm tracking-wide">
-              <li>
-                <a
-                  href="#home"
-                  onClick={handleClick}
-                  className="block py-2 px-3 rounded-md font-bold  bg-gradient-to-r from-purple-500 to-blue-400 bg-clip-text text-transparent  hover:bg-gradient-to-r hover:text-transparent hover:from-blue-200 hover:to-purple-800 hover:shadow-lg hover:shadow-blue-300/60 transition-all duration-300 ease-in-out"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  onClick={handleClick}
-                  className="block py-2 px-3 rounded-md font-bold  bg-gradient-to-r from-purple-500 to-blue-400 bg-clip-text text-transparent  hover:bg-gradient-to-r hover:text-transparent hover:from-blue-200 hover:to-purple-800 hover:shadow-lg hover:shadow-blue-300/60 transition-all duration-300 ease-in-out"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#Shoes"
-                  onClick={handleClick}
-                  className="block py-2 px-3 rounded-md font-bold  bg-gradient-to-r from-purple-500 to-blue-400 bg-clip-text text-transparent  hover:bg-gradient-to-r hover:text-transparent hover:from-blue-200 hover:to-purple-800 hover:shadow-lg hover:shadow-blue-300/60 transition-all duration-300 ease-in-out"
-                >
-                  Shoes
-                </a>
-              </li>
-              {/* <li>
-                <a
-                  href="#"
-                  onClick={handleClick}
-                  className="block py-2 px-3 rounded-md hover:text-blue-300 transition"
-                >
-                  Services
-                </a>
-              </li> */}
-              <li>
-                <a
-                  href="#contact"
-                  onClick={handleClick}
-                  className="block py-2 px-3 rounded-md font-bold  bg-gradient-to-r from-purple-500 to-blue-400 bg-clip-text text-transparent  hover:bg-gradient-to-r hover:text-transparent hover:from-blue-200 hover:to-purple-800 hover:shadow-lg hover:shadow-blue-300/60 transition-all duration-300 ease-in-out"
-                >
-                  Contact
-                </a>
-              </li>
+            <ul className="flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0 font-medium text-sm tracking-wide">
+              {["home", "about", "Shoes", "contact"].map((section) => (
+                <li key={section}>
+                  <a
+                    href={`#${section}`}
+                    onClick={handleMenuClick}
+                    className="block py-2 px-3 rounded-md font-bold bg-gradient-to-r from-purple-500 to-blue-400 bg-clip-text text-transparent hover:bg-gradient-to-r hover:text-transparent hover:from-blue-200 hover:to-purple-800 hover:shadow-lg hover:shadow-blue-300/60 transition-all duration-300 ease-in-out"
+                  >
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                  </a>
+                </li>
+              ))}
 
               <div className="flex sm:hidden flex-col gap-2 mt-2">
                 <button
-                  onClick={handleClick}
-                  className="inline-flex items-center justify-center gap-1 px-3 py-1.5 text-xs font-medium  bg-gradient-to-r from-green-500 to-emerald-600 rounded-full shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all duration-200"
+                  onClick={handleMenuClick}
+                  className="inline-flex items-center justify-center gap-1 px-3 py-1.5 text-xs font-medium bg-gradient-to-r from-green-500 to-emerald-600 rounded-full shadow-sm hover:shadow-md hover:scale-105 active:scale-95 transition-all duration-200"
                 >
                   Login
                 </button>
@@ -167,6 +139,9 @@ const Navbar = ({ onAddToCart }) => {
           </div>
         </div>
       </nav>
+
+      <AddToCartModal isOpen={cartOpen} onClose={() => setCartOpen(false)} />
+        <Login isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </div>
   );
 };

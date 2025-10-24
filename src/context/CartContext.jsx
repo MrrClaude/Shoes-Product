@@ -5,20 +5,17 @@
   export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
 
-  // In your CartContext or wherever addToCart is defined
   const addToCart = (product, quantityToAdd = 1) => {
     setCartItems((prevItems) => {
       const existing = prevItems.find((item) => item.id === product.id);
 
       if (existing) {
-        // If product exists, always increase by quantityToAdd
         return prevItems.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + quantityToAdd }
             : item
         );
       } else {
-        // If first time, use quantityToAdd (can be modal quantity or 1)
         return [...prevItems, { ...product, quantity: quantityToAdd }];
       }
     });

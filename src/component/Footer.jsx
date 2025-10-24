@@ -8,13 +8,12 @@ const Footer = () => {
 
   return (
     <footer
-      className={`w-full relative ${
-        isDark ? "bg-gray-900 text-gray-300" : "bg-white text-gray-800"
+      className={`w-full relative backdrop-blur-lg bg-white/10  border shadow-lg   border-white/20 ${
+        isDark ? " text-gray-300" : " text-gray-800"
       }`}
     >
       <div className="max-w-screen-xl mx-auto p-6 md:p-12">
         <div className="md:flex md:justify-between md:items-start">
-          {/* Logo */}
           <div className="mb-6 md:mb-0 flex items-center gap-3">
             <img
               src="https://media.tenor.com/smjHE1Sh9qcAAAAj/nike.gif"
@@ -30,48 +29,154 @@ const Footer = () => {
             </span>
           </div>
 
-          {/* Links */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Our Pages",
-                links: ["Home", "About","Shoes","Service","Contact Us"],
-              },
-              {
-                title: "Follow Us",
-                links: ["Facebook", "Instagram", "Twitter"],
-              },
-              {
-                title: "Legal",
-                links: ["Privacy Policy", "Terms & Conditions"],
-              },
-            ].map((section, idx) => (
-              <div key={idx}>
-                <h2
-                  className={`mb-4 text-sm font-bold uppercase ${
-                    isDark ? "text-white" : "text-gray-900"
-                  }`}
-                >
-                  {section.title}
-                </h2>
-                <ul className="space-y-2 font-semibold">
-                  {section.links.map((link, i) => (
-                    <li key={i}>
-                      <a
-                        href="#"
-                        className={`transition hover:scale-105 ${
-                          isDark
-                            ? "text-gray-400 hover:text-blue-400"
-                            : "text-gray-600 hover:text-blue-500"
-                        }`}
-                      >
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            {/* Our Pages */}
+            <div>
+              <h2
+                className={`mb-4 text-sm font-bold uppercase ${
+                  isDark ? "text-white" : "text-gray-900"
+                }`}
+              >
+                Our Pages
+              </h2>
+              <ul className="space-y-2 font-semibold">
+                <li>
+                  <a
+                    href="#home"
+                    className={`transition hover:scale-105 ${
+                      isDark
+                        ? "text-gray-400 hover:text-blue-400"
+                        : "text-gray-600 hover:text-blue-500"
+                    }`}
+                  >
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#about"
+                    className={`transition hover:scale-105 ${
+                      isDark
+                        ? "text-gray-400 hover:text-blue-400"
+                        : "text-gray-600 hover:text-blue-500"
+                    }`}
+                  >
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#Shoes"
+                    className={`transition hover:scale-105 ${
+                      isDark
+                        ? "text-gray-400 hover:text-blue-400"
+                        : "text-gray-600 hover:text-blue-500"
+                    }`}
+                  >
+                    Shoes
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#contact"
+                    className={`transition hover:scale-105 ${
+                      isDark
+                        ? "text-gray-400 hover:text-blue-400"
+                        : "text-gray-600 hover:text-blue-500"
+                    }`}
+                  >
+                    Contact Us
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Follow Us */}
+            <div>
+              <h2
+                className={`mb-4 text-sm font-bold uppercase ${
+                  isDark ? "text-white" : "text-gray-900"
+                }`}
+              >
+                Follow Us
+              </h2>
+              <ul className="space-y-2 font-semibold">
+                  <li>
+                    <a
+                      href="https://www.facebook.com/mrr.claude"  
+                      target="_blank"
+                      className={`transition hover:scale-105 ${
+                        isDark
+                          ? "text-gray-400 hover:text-blue-400"
+                          : "text-gray-600 hover:text-blue-500"
+                      }`}
+                    >
+                      Facebook
+                    </a>
+                  </li>
+                <li>
+                  <a
+                    href="#"
+                    className={`transition hover:scale-105 ${
+                      isDark
+                        ? "text-gray-400 hover:text-blue-400"
+                        : "text-gray-600 hover:text-blue-500"
+                    }`}
+                  >
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className={`transition hover:scale-105 ${
+                      isDark
+                        ? "text-gray-400 hover:text-blue-400"
+                        : "text-gray-600 hover:text-blue-500"
+                    }`}
+                  >
+                    Twitter
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Legal */}
+            <div>
+              <h2
+                className={`mb-4 text-sm font-bold uppercase ${
+                  isDark ? "text-white" : "text-gray-900"
+                }`}
+              >
+                Legal
+              </h2>
+              <ul className="space-y-2 font-semibold">
+                <li>
+                  <a
+                    href="#"
+                    className={`transition hover:scale-105 ${
+                      isDark
+                        ? "text-gray-400 hover:text-blue-400"
+                        : "text-gray-600 hover:text-blue-500"
+                    }`}
+                  >
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className={`transition hover:scale-105 ${
+                      isDark
+                        ? "text-gray-400 hover:text-blue-400"
+                        : "text-gray-600 hover:text-blue-500"
+                    }`}
+                  >
+                    Terms & Conditions
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -81,18 +186,16 @@ const Footer = () => {
           }`}
         />
 
-        {/* Bottom */}
         <div className="sm:flex sm:justify-between sm:items-center">
           <span
             className={`text-sm ${
               isDark ? "text-gray-400" : "text-gray-500"
             } sm:text-center`}
           >
-            © 2025 <span className="font-semibold">ShoeStore™</span>. All
-            rights reserved.
+            © 2025 <span className="font-semibold">ShoeStore™</span>. All rights
+            reserved.
           </span>
 
-          {/* Social Icons */}
           <div className="flex mt-4 sm:mt-0 gap-4">
             <a
               href="#"

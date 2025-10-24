@@ -13,7 +13,6 @@ const Contact = () => {
           : "bg-gray-200 text-gray-900"
       }`}
     >
-      {/* Background image and overlay */}
       <img
         src="https://media.voguebusiness.com/photos/62cf0a1d32660068c1ddf2d3/master/w_1600%2Cc_limit/Nike%2520-%2520West%2520London%2520-%2520%2520KEY%2520SELECTS%2520-%2520JORDAN.jpg"
         alt="Nike Contact Background"
@@ -21,9 +20,7 @@ const Contact = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-gray-900/90"></div>
 
-      {/* Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6">
-        {/* Header */}
         <div className="text-center mb-16">
           <h2
             className={`text-5xl font-extrabold ${
@@ -51,9 +48,7 @@ const Contact = () => {
           </p>
         </div>
 
-        {/* Contact Layout */}
         <div className="grid md:grid-cols-2 gap-12">
-          {/* Left Info */}
           <div className="space-y-8">
             {[
               {
@@ -149,7 +144,6 @@ const Contact = () => {
             ))}
           </div>
 
-          {/* Right Form */}
           <div
             className={`p-8 rounded-2xl border backdrop-blur-xl transition-all duration-500 hover:shadow-xl ${
               theme === "dark"

@@ -1,10 +1,8 @@
+// src/pages/AllProducts.jsx
 import React, { useContext, useState } from "react";
 import CardModal from "../component/CardModal";
-import { FaArrowLeft, FaShoppingCart } from "react-icons/fa";
 import CartContext from "../context/CartContext";
 import ThemeContext from "../context/ThemeProvider";
-import { Link } from "react-router-dom";
-import AllProducts from "./AllProducts";
 
 const productsData = [
   {
@@ -91,23 +89,119 @@ const productsData = [
     rating: 5,
     reviews: 198,
   },
-   
+  {
+    id: 5,
+    title: "Nike React Infinity Run Flyknit",
+    description:
+      "Designed to reduce injury and provide smooth cushioning for long-distance runs.",
+    image:
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/4b95b3e9-9583-41aa-b4d0-0425eaae3e8a/W+NIKE+REACT+PHANTOM+RUN+FK+2.png",
+    thumbnails: [
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/c4a76408-e4ad-49da-bed4-c5e741d294ab/W+NIKE+REACT+PHANTOM+RUN+FK+2.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/759222d6-e768-4429-8839-c333f87ce6ef/W+NIKE+REACT+PHANTOM+RUN+FK+2.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/58d8a557-1b19-460d-a044-8c354673a933/W+NIKE+REACT+PHANTOM+RUN+FK+2.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/93328136-e377-47c6-a191-893bba207c35/W+NIKE+REACT+PHANTOM+RUN+FK+2.png",
+    ],
+    kind: "Running Shoes",
+    oldPrice: 160.0,
+    currentPrice: 135.0,
+    discount: 16,
+    badge: "Popular",
+    rating: 4.7,
+    reviews: 198,
+  },
+  {
+    id: 6,
+    title: "Nike Air Zoom Alphafly NEXT%",
+    description:
+      "High-performance racing shoe with ZoomX foam and carbon fiber plate for elite speed.",
+    image:
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/0654e00d-6e45-4766-8714-d55a0ddbe3da/AIR+ZOOM+ALPHAFLY+NEXT%25+3.png",
+    thumbnails: [
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/db8cd92d-b219-4e72-90f4-e43a5a779ca3/AIR+ZOOM+ALPHAFLY+NEXT%25+3.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/147ac3fa-2814-4891-9e76-30c9f0347e74/AIR+ZOOM+ALPHAFLY+NEXT%25+3.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/80986e1e-73a8-4a54-9159-8347ebca1b01/AIR+ZOOM+ALPHAFLY+NEXT%25+3.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/1e79994f-fef4-4a40-acea-cf929a7cc976/AIR+ZOOM+ALPHAFLY+NEXT%25+3.png",
+    ],
+    kind: "Racing Shoes",
+    oldPrice: 250.0,
+    currentPrice: 199.99,
+    discount: 20,
+    badge: "Limited Edition",
+    rating: 4.8,
+    reviews: 142,
+  },
+  {
+    id: 7,
+    title: "Nike Free RN 5.0",
+    description:
+      "Lightweight and flexible running shoe, designed for natural movement and comfort.",
+    image:
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/3b27eb2b-da90-4a12-bb43-a093ca26b4a3/NIKE+FREE+RN+5.0+NEXT+NATURE.png",
+    thumbnails: [
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/9c72fc47-b20c-41f4-afca-afd01d011df9/NIKE+FREE+RN+5.0+NEXT+NATURE.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/6de9c3a3-6010-4fb4-9f7f-e551dc72dfc5/NIKE+FREE+RN+5.0+NEXT+NATURE.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/ab3578dd-5a50-4d0b-9c64-a6946d0a78d3/NIKE+FREE+RN+5.0+NEXT+NATURE.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/740e0ba3-9da8-4554-8e43-e1d2396b4f56/NIKE+FREE+RN+5.0+NEXT+NATURE.png",
+    ],
+    kind: "Running Shoes",
+    oldPrice: 130.0,
+    currentPrice: 99.99,
+    discount: 23,
+    badge: "Popular",
+    rating: 4.6,
+    reviews: 256,
+  },
+   {
+    id: 8,
+    title: "Nike Air Jordan 1 Mid",
+    description:
+      "Classic Air Jordan 1 Mid with premium leather and iconic style, perfect for streetwear and casual wear.",
+    image:
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/24750e81-85ed-4b0e-8cd8-becf0cd97b2f/WMNS+AIR+JORDAN+1+MID.png",
+    thumbnails: [
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/858bae62-65db-4f83-a870-9da6f3d92624/WMNS+AIR+JORDAN+1+MID.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/994eb8da-59c2-491f-b1ac-6560fe7a0f3d/WMNS+AIR+JORDAN+1+MID.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/994eb8da-59c2-491f-b1ac-6560fe7a0f3d/WMNS+AIR+JORDAN+1+MID.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/e0c623f4-3bdc-43c1-a59f-c5eacfce3fb0/WMNS+AIR+JORDAN+1+MID.png",
+    ],
+    kind: "Lifestyle Shoes",
+    oldPrice: 150.0,
+    currentPrice: 129.99,
+    discount: 13,
+    badge: "Best Seller",
+    rating: 4.9,
+    reviews: 320,
+  },
+  {
+    id: 9,
+    title: "Nike Blazer Mid '77 Vintage",
+    description:
+      "Retro basketball style with a vintage look, durable leather upper, and timeless midsole design.",
+    image:
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/865b0c21-4c5c-4ef6-81c5-bb6f266e73a9/BLAZER+MID+%2777+VNTG.png",
+    thumbnails: [
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/4f1d4459-ef3c-4d73-b0ec-b5f54cb41749/BLAZER+MID+%2777+VNTG.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/39a8bf3f-34a4-4736-9d5f-724566d6d889/BLAZER+MID+%2777+VNTG.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/3298bc86-8a66-43e4-8196-54a94e86c535/BLAZER+MID+%2777+VNTG.png",
+      "https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/716d48c0-13a7-4cc1-a396-b21037ab59a2/BLAZER+MID+%2777+VNTG.png",
+    ],
+    kind: "Sneakers",
+    oldPrice: 120.0,
+    currentPrice: 99.99,
+    discount: 17,
+    badge: "New Arrival",
+    rating: 4.7,
+    reviews: 210,
+  },
 ];
 
-const Shose = () => {
+const AllProducts = () => {
   const [showFullDescription, setShowFullDescription] = useState({});
   const [wishlist, setWishlist] = useState({});
   const [selectedProduct, setSelectedProduct] = useState(null);
   const { addToCart } = useContext(CartContext);
-  const handleAddToCart = (product) => {
-    addToCart(product); 
-  };
-  const toggleWishlist = (index) => {
-    setWishlist((prev) => ({
-      ...prev,
-      [index]: !prev[index],
-    }));
-  };
+//   const { theme } = useContext(ThemeContext);
 
   const toggleDescription = (index) => {
     setShowFullDescription((prev) => ({
@@ -116,24 +210,24 @@ const Shose = () => {
     }));
   };
 
+  const toggleWishlist = (index) => {
+    setWishlist((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
   const openModal = (product) => setSelectedProduct(product);
   const closeModal = () => setSelectedProduct(null);
-  const [showAllProductsModal, setShowAllProductsModal] = useState(false);
-  const { theme } = useContext(ThemeContext);
 
   return (
-    <section className="px-4 md:px-10">
-      <h1
-        id="Shoes"
-        className="text-4xl md:text-5xl font-bold text-center mb-10 mt-20"
-      >
-        Product
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-6">
+    <section className="px-4 md:px-10 ">
+  
+      <div className="grid grid-cols-1 sm:grid-cols-2 mt-20 mb-20 lg:grid-cols-4 gap-6 px-6">
         {productsData.map((product, index) => (
           <div
             key={index}
-            className="bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-pink-400/50"
+            className=" rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-pink-400/50"
           >
             <div className="relative h-56 overflow-hidden rounded-t-2xl bg-gray-100">
               <img
@@ -141,7 +235,6 @@ const Shose = () => {
                 alt={product.title}
                 className="w-full h-full object-cover transition-transform duration-700 ease-in-out hover:scale-90 hover:-rotate-45"
               />
-
               <div className="absolute top-3 left-3 bg-pink-600 text-white px-2 py-1 rounded text-[0.6rem] font-bold uppercase tracking-wider">
                 {product.badge}
               </div>
@@ -187,6 +280,7 @@ const Shose = () => {
               >
                 {product.description}
               </p>
+
               <button
                 onClick={() => toggleDescription(index)}
                 className="text-pink-500 font-semibold text-xs hover:underline mb-2"
@@ -212,22 +306,15 @@ const Shose = () => {
                 <div className="flex flex-col sm:flex-row gap-2">
                   <button
                     onClick={() => openModal(product)}
-                    className="flex-1  bg-gradient-to-r from-purple-500 to-blue-400 py-2 rounded-xl text-xs font-semibold shadow-md hover:bg-gradient-to-r hover:text hover:from-blue-200 hover:to-purple-800 hover:shadow-lg transition-all"
+                    className="flex-1 bg-gradient-to-r from-purple-500 to-blue-400 py-2 rounded-xl text-xs font-semibold shadow-md hover:from-blue-200 hover:to-purple-800 hover:shadow-lg transition-all"
                   >
                     View More
                   </button>
                   <button
-                    onClick={() => handleAddToCart(product)}
+                    onClick={() => addToCart(product)}
                     className="flex-1 bg-pink-600 text-white py-2 rounded-xl text-xs font-semibold shadow-md hover:bg-pink-700 transition-all duration-1000"
                   >
                     Add To Cart
-                    {selectedProduct && (
-                      <CardModal
-                        product={selectedProduct}
-                        onClose={() => setSelectedProduct(null)}
-                        onAddToCart={() => console.log("Added!")}
-                      />
-                    )}
                   </button>
                 </div>
               </div>
@@ -235,43 +322,12 @@ const Shose = () => {
           </div>
         ))}
       </div>
-      <div className="text-center">
-        <button
-          onClick={() => setShowAllProductsModal(true)}
-          className="
-      inline-block m-9 font-semibold rounded-2xl px-6 py-2 text-lg
-      bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500
-      shadow-lg shadow-blue-500/40 hover:shadow-pink-500/50
-      hover:scale-105 transition-all duration-300
-      backdrop-blur-md border border-white/20
-      relative overflow-hidden
-      before:absolute before:inset-0 before:bg-gradient-to-t
-      before:from-white/20 before:to-transparent before:opacity-30
-      hover:before:opacity-50 
-    "
-        >
-          View All
-        </button>
-      </div>
+
       {selectedProduct && (
         <CardModal product={selectedProduct} onClose={closeModal} />
-      )}
-      {showAllProductsModal && (
-        <div className={`fixed inset-0 z-50  flex flex-col overflow-auto ${theme === "dark"?"bg-black text-white":"bg-white text-black"}`}>
-          <button
-            onClick={() => setShowAllProductsModal(false)}
-            className="absolute top-4 left-4 text-white bg-black/30 hover:bg-black/50 p-2 rounded-2xl text-3xl z-50"
-          >
-            <FaArrowLeft />
-          </button>
-
-          <div className="flex-1 overflow-y-auto w-full">
-            <AllProducts />
-          </div>
-        </div>
       )}
     </section>
   );
 };
 
-export default Shose;
+export default AllProducts;
